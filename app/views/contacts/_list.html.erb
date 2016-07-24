@@ -1,0 +1,24 @@
+<%# app/views/contacts/_list.html.erb %>
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info contacts # provided by will_paginate %>
+  </div>
+
+  
+  <table>
+    <tr>
+      <th><%= filterrific_sorting_link(@filterrific, :nome) %></th>
+      <th><%= filterrific_sorting_link(@filterrific, :email) %></th>
+    </tr>
+    <% contacts.each do |contacts| %>
+      <tr>
+        <td><%= link_to(contact.nome, contact_path(contact)) %></td>
+        <td><%= contact.email %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate contacts
+ # provided by will_paginate %>

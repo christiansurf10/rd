@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pesquisas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome pesquisa</th>
+      <th>Nome</th>
+      <th>Like nome</th>
+      <th>Operador email</th>
+      <th>Email</th>
+      <th>Like email</th>
+      <th>Operador idade</th>
+      <th>Idade</th>
+      <th>Operador aritmetico idade</th>
+      <th>Operador estado</th>
+      <th>Estado</th>
+      <th>Like estado</th>
+      <th>Operador cargo</th>
+      <th>Cargo</th>
+      <th>Like cargo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pesquisas.each do |pesquisa| %>
+      <tr>
+        <td><%= pesquisa.nome_pesquisa %></td>
+        <td><%= pesquisa.nome %></td>
+        <td><%= pesquisa.like_nome %></td>
+        <td><%= pesquisa.operador_email %></td>
+        <td><%= pesquisa.email %></td>
+        <td><%= pesquisa.like_email %></td>
+        <td><%= pesquisa.operador_idade %></td>
+        <td><%= pesquisa.idade %></td>
+        <td><%= pesquisa.operador_aritmetico_idade %></td>
+        <td><%= pesquisa.operador_estado %></td>
+        <td><%= pesquisa.estado %></td>
+        <td><%= pesquisa.like_estado %></td>
+        <td><%= pesquisa.operador_cargo %></td>
+        <td><%= pesquisa.cargo %></td>
+        <td><%= pesquisa.like_cargo %></td>
+        <td><%= link_to 'Show', pesquisa %></td>
+        <td><%= link_to 'Edit', edit_pesquisa_path(pesquisa) %></td>
+        <td><%= link_to 'Destroy', pesquisa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pesquisa', new_pesquisa_path %>

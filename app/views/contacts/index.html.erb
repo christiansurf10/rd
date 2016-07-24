@@ -1,0 +1,117 @@
+
+
+<h3>Segmentação de contatos</h3>
+<fieldset>
+<%= form_tag(contacts_path, :method => 'get') do %>
+     <%= label_tag(:consultas, "Consultas Salvas:") %>
+     <%= select_tag(:consultas, options_for_select([["Escolha uma consulta", "0"],["Figueirenses em floripa", "1"], ["Motoqueiros", "2"], ["Programadores", "3"], ["Religiosos", "4"], ["Medicos em residência", "5"]])) %>
+      <br />
+      <table>
+        <tr>
+           <td><%= label_tag(:nome, "Nome: ") %></td>
+           <td><%= text_field_tag(:nome)  %></td>
+           <td><%= select_tag(:like_nome, options_for_select([["Igual a", "0"], ["Contêm", "1"], ["Começa com", "2"], ["Termina com", "3"]])) %></td>
+      <!--“Igual a”, “contém”, “começa com” e “termina com”-->
+       </tr>
+       <tr>
+          <td></td>
+          <td> <%= select_tag(:operador_email, options_for_select([["E", "AND"], ["OU", "OR"]])) %></td>
+          <td></td>
+       </tr>
+      </table>
+     
+      <table>
+        <tr>
+           <td> <%= label_tag(:email, "Email:") %></td>
+           <td>   <%= text_field_tag(:email)  %>   </td>
+           <td>  <%= select_tag(:like_email, options_for_select([["Igual a", "0"], ["Contêm", "1"], ["Começa com", "2"], ["Termina com", "3"]])) %></td>
+      <!--“Igual a”, “contém”, “começa com” e “termina com”-->
+      </tr>
+        <tr>
+          <td></td>
+          <td> <%= select_tag(:operador_idade, options_for_select([["E", "AND"], ["OU", "OR"]])) %></td>
+          <td></td>
+       </tr>
+      </table>
+      <table>
+        <tr>
+           <td> <%= label_tag(:idade, "Idade:") %></td>
+           <td><%= text_field_tag(:idade)  %>     </td>
+           <td><%= select_tag(:operador_aritmetico_idade, options_for_select([["Igual a", "="], ["Menor que", "<"], ["Menor ou igual", "<="], ["Maior que", ">"], ["Maior ou igual", ">="]])) %></td>
+      <!--“igual a”, “menor que”, “menor ou igual a”, “maior que” e “maior ou igual a” -->
+       </tr>
+       <tr>
+          <td></td>
+          <td> <%= select_tag(:operador_estado, options_for_select([["E", "AND"], ["OU", "OR"]])) %></td>
+          <td></td>
+       </tr>
+      </table>
+       <table>
+        <tr>
+           <td> <%= label_tag(:estado, "Estado:") %></td>
+           <td><%= text_field_tag(:estado)  %>     </td>
+           <td>  <%= select_tag(:like_estado, options_for_select([["Igual a", "0"], ["Contêm", "1"], ["Começa com", "2"], ["Termina com", "3"]])) %></td>
+      <!--“igual a”, “menor que”, “menor ou igual a”, “maior que” e “maior ou igual a” -->
+       </tr>
+       <tr>
+          <td></td>
+          <td> <%= select_tag(:operador_cargo, options_for_select([["E", "AND"], ["OU", "OR"]])) %></td>
+          <td></td>
+       </tr>
+      </table>
+       </table>
+       <table>
+        <tr>
+           <td> <%= label_tag(:cargo, "Cargo:") %></td>
+           <td><%= text_field_tag(:cargo)  %>     </td>
+           <td>  <%= select_tag(:like_cargo, options_for_select([["Igual a", "0"], ["Contêm", "1"], ["Começa com", "2"], ["Termina com", "3"]])) %></td>
+      <!--“igual a”, “menor que”, “menor ou igual a”, “maior que” e “maior ou igual a” -->
+       </tr>
+       <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+       </tr>
+      </table>
+
+
+  <%= submit_tag("Pesquisar",  class: "btn btn-default") %>
+  <%= submit_tag("Salvar Consulta",  class: "btn btn-default") %>
+<% end %>
+</fieldset>
+
+<fieldset>
+<h1></h1>
+<p id="notice"><%= notice %></p>
+<table border="1px" bordercolor="#f1f1f1">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Idade</th>
+      <th>Estado</th>
+      <th>Cargo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.nome %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.idade %></td>
+        <td><%= contact.estado %></td>
+        <td><%= contact.cargo %></td>
+        <td><%= link_to 'Exibir', contact %></td>
+        <td><%= link_to 'Editar', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Escluir', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Contato', new_contact_path %>
+</fieldset>

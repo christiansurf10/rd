@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_pesquisa: MyString
+  nome: MyString
+  like_nome: 1
+  operador_email: MyString
+  email: MyString
+  like_email: 1
+  operador_idade: MyString
+  idade: 1
+  operador_aritmetico_idade: MyString
+  operador_estado: MyString
+  estado: MyString
+  like_estado: 1
+  operador_cargo: MyString
+  cargo: MyString
+  like_cargo: 1
+
+two:
+  nome_pesquisa: MyString
+  nome: MyString
+  like_nome: 1
+  operador_email: MyString
+  email: MyString
+  like_email: 1
+  operador_idade: MyString
+  idade: 1
+  operador_aritmetico_idade: MyString
+  operador_estado: MyString
+  estado: MyString
+  like_estado: 1
+  operador_cargo: MyString
+  cargo: MyString
+  like_cargo: 1

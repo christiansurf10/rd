@@ -1,0 +1,92 @@
+<%= form_for(pesquisa) do |f| %>
+  <% if pesquisa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pesquisa.errors.count, "error") %> prohibited this pesquisa from being saved:</h2>
+
+      <ul>
+      <% pesquisa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome_pesquisa %>
+    <%= f.text_field :nome_pesquisa %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :like_nome %>
+    <%= f.number_field :like_nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operador_email %>
+    <%= f.text_field :operador_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :like_email %>
+    <%= f.number_field :like_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operador_idade %>
+    <%= f.text_field :operador_idade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :idade %>
+    <%= f.number_field :idade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operador_aritmetico_idade %>
+    <%= f.text_field :operador_aritmetico_idade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operador_estado %>
+    <%= f.text_field :operador_estado %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado %>
+    <%= f.text_field :estado %>
+  </div>
+
+  <div class="field">
+    <%= f.label :like_estado %>
+    <%= f.number_field :like_estado %>
+  </div>
+
+  <div class="field">
+    <%= f.label :operador_cargo %>
+    <%= f.text_field :operador_cargo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cargo %>
+    <%= f.text_field :cargo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :like_cargo %>
+    <%= f.number_field :like_cargo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
