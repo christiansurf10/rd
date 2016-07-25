@@ -3,9 +3,14 @@
 <h3>Segmentação de contatos</h3>
 <fieldset>
 <%= form_tag(contacts_path, :method => 'get') do %>
-     <%= label_tag(:consultas, "Consultas Salvas:") %>
-     <%= select_tag(:consultas, options_for_select([["Escolha uma consulta", "0"],["Figueirenses em floripa", "1"], ["Motoqueiros", "2"], ["Programadores", "3"], ["Religiosos", "4"], ["Medicos em residência", "5"]])) %>
-      <br />
+     
+     <table>
+        <tr>
+        <td><%= label_tag(:consultas, "Pesquisas Salvas:") %></td>
+        <td><%= select("post", "pesquisa_id", Pesquisa.all.collect {|p| [ p.nome_pesquisa, p.id ] }, {include_blank:   'None'})%></td>
+        </tr>
+     </table>
+     <br />
       <table>
         <tr>
            <td><%= label_tag(:nome, "Nome: ") %></td>
@@ -73,10 +78,9 @@
           <td></td>
        </tr>
       </table>
-
-
+  <%= submit_tag("Salvar Pesquisa",  class: "btn btn-default") %>
   <%= submit_tag("Pesquisar",  class: "btn btn-default") %>
-  <%= submit_tag("Salvar Consulta",  class: "btn btn-default") %>
+  
 <% end %>
 </fieldset>
 
@@ -114,4 +118,5 @@
 <br>
 
 <%= link_to 'Novo Contato', new_contact_path %>
+<%= link_to 'Manter Pesquisas', pesquisas_path %>
 </fieldset>

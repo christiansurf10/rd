@@ -5,6 +5,10 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
   #Operadores
+  @pesquisas = Pesquisa.find(1)
+  puts "Nome da pesquisa: "
+  puts @pesquisas.nome_pesquisa
+
       operador_email      = params[:operador_email]
       operador_idade      = params[:operador_idade]
       operador_aritmetico_idade = params[:operador_aritmetico_idade]
